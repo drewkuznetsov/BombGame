@@ -14,6 +14,7 @@
 		AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */; };
 		AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F862D5B000300389CA8 /* CategoryButtonView.swift */; };
 		AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F892D5B089200389CA8 /* ParsingService.swift */; };
+		E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426A8072D5BE1B10035323A /* CustomButton.swift */; };
 		E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */; };
 		E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477D8232D5A5C9B0033AA5F /* ContentView.swift */; };
 		E477D8262D5A5C9D0033AA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E477D8252D5A5C9D0033AA5F /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryToolbarView.swift; sourceTree = "<group>"; };
 		AD896F862D5B000300389CA8 /* CategoryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonView.swift; sourceTree = "<group>"; };
 		AD896F892D5B089200389CA8 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
+		E426A8072D5BE1B10035323A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E477D81E2D5A5C9B0033AA5F /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BombGameApp.swift; sourceTree = "<group>"; };
 		E477D8232D5A5C9B0033AA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */,
+				E426A8072D5BE1B10035323A /* CustomButton.swift */,
 				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
 				E48A58AB2D5BC79600C70964 /* GameView.swift */,
@@ -200,6 +203,7 @@
 				E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */,
 				AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */,
 				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
+				E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */,
 				AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */,
 				E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */,
 				E48A58AA2D5BC2DD00C70964 /* CustomToolBar.swift in Sources */,
