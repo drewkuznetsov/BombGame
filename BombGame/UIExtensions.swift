@@ -30,6 +30,8 @@ extension Color {
     static let mainBackground = Color("mainBackground")
     static let mainSheetBG = Color("mainSheetBG")
     static let mainViewButton = Color("mainViewButton")
+    static let categoryGrid = Color("categoryGrid")
+    static let questionButton = Color("questionButtonColor")
     static let primary = Color("primary")
     static let secondary = Color("secondary")
     

@@ -64,7 +64,12 @@ struct CategoryView: View {
     }
 }
 
-#Preview {
-    CategoryView(viewModel: CategoryViewModel(fileName: "categories"))
-}
+//#Preview {
+//    CategoryView(viewModel: CategoryViewModel(fileName: "categories"))
+//}
 
+struct CategoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        CategoryView(viewModel: CategoryViewModel(fileName: "categories"))
+    }
+}
