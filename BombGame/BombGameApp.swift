@@ -12,8 +12,9 @@ struct BombGameApp: App {
     var body: some Scene {
         var viewModel = CategoryViewModel()
         WindowGroup {
-            CategoryView(viewModel: viewModel)
-                .environmentObject(viewModel)
+//            CategoryView(viewModel: viewModel)
+//                .environmentObject(viewModel)
+            AudioView()
         }
     }
 }
