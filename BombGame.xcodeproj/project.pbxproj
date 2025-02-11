@@ -20,6 +20,7 @@
 		E477D8292D5A5C9D0033AA5F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E477D8282D5A5C9D0033AA5F /* Preview Assets.xcassets */; };
 		E477D8302D5A74610033AA5F /* CatAndQuestions.strings in Resources */ = {isa = PBXBuildFile; fileRef = E477D82F2D5A74610033AA5F /* CatAndQuestions.strings */; };
 		E48A58AA2D5BC2DD00C70964 /* CustomToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */; };
+		E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48A58AB2D5BC79600C70964 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E477D8282D5A5C9D0033AA5F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E477D82F2D5A74610033AA5F /* CatAndQuestions.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = CatAndQuestions.strings; sourceTree = "<group>"; };
 		E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomToolBar.swift; sourceTree = "<group>"; };
+		E48A58AB2D5BC79600C70964 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */,
 				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
+				E48A58AB2D5BC79600C70964 /* GameView.swift */,
 				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
 				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
 				AD896F7F2D5AB41C00389CA8 /* Model */,
@@ -194,6 +197,7 @@
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
 				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,
+				E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */,
 				AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */,
 				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
 				AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */,
