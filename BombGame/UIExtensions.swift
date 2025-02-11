@@ -18,3 +18,19 @@ extension Font {
         .system(size: fontSize, design: .rounded)
     }
 }
+
+
+//MARK: - COLOR
+extension Color {
+    static let categoryChosen = Color("categoryChosen")
+    static let categoryCellBG = Color("categoryCellBG")
+    static let categorySheetBG = Color("categorySheetBG")
+    static let gameBackground = Color("gameBackground")
+    static let gameViewButton = Color("gameViewButton")
+    static let mainBackground = Color("mainBackground")
+    static let mainSheetBG = Color("mainSheetBG")
+    static let mainViewButton = Color("mainViewButton")
+    static let primary = Color("primary")
+    static let secondary = Color("secondary")
+    
+}
