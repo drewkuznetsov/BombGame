@@ -34,6 +34,13 @@ struct MainView: View {
                     .shadow(radius: 8)
                 
                 Image("mainBombImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width * 0.75)
+                
+                CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
+                    //todo
+                }
                 
             }
             
