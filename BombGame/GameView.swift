@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct GameView: View {
+    
+    @State private var soundTimer: AVAudioPlayer?
+    @State private var soundGong: AVAudioPlayer?
+    @State private var soundBang: AVAudioPlayer?
     
     @State var isPlaying = false
     
@@ -32,6 +37,7 @@ struct GameView: View {
                     
                 }, rightButtonIcon: isPlaying ? "Pause" : "Play") {
                     // Play Button Action
+                    isPlaying ? pauseSound() : playTimer()
                     self.isPlaying.toggle()
                 }
                 .padding(.top, 70)
@@ -49,6 +55,8 @@ struct GameView: View {
                 if (!isPlaying) {
                     CustomButton(title: "Запустить",
                                  backgroundColor: Color.gameViewButton) {
+                        PlayGong()
+                        playTimer()
                         // Start button action
                         isPlaying.toggle()
                     }
@@ -62,6 +70,38 @@ struct GameView: View {
                 .frame(width: 312,height: 350)
             Spacer()
             
+        }
+    }
+}
+
+//MARK: Play Audio Sounds Extension
+
+extension GameView {
+    
+    func playTimer() {
+        playSound(named: "Timer", player: &soundTimer)
+    }
+    
+    func PlayGong() {
+        playSound(named: "Gong", player: &soundGong)
+    }
+    
+    func playBang() {
+        playSound(named: "Bang", player: &soundBang)
+    }
+    
+    func pauseSound() {
+            soundTimer?.pause()
+        }
+    
+    func playSound(named fileName: String, player: inout AVAudioPlayer?) {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") {
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+            } catch {
+                print("Ошибка воспроизведения: \(error.localizedDescription)")
+            }
         }
     }
 }
