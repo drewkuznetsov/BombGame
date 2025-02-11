@@ -9,16 +9,21 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack {
-            Color.mainBackground
+        ZStack(alignment: .top) {
             
-            Image("Topographic")
-                .resizable()
-                .renderingMode(.template)
-                .foregroundStyle(.black)
-                .opacity(0.1)
+            ZStack {
+                Color.mainBackground
+                
+                Image("Topographic")
+                    .resizable()
+                    .renderingMode(.template)
+                    .foregroundStyle(.black)
+                    .opacity(0.1)
+            }
+            .ignoresSafeArea()
             
-            VStack {
+            VStack(alignment: .center) {
+                                
                 CustomToolBar(title: "", leftButtonIcon: "gearWheel", leftButtonAction: {
                     //todo
                 }, rightButtonIcon: "QuestionRed") {
@@ -33,19 +38,26 @@ struct MainView: View {
                     .font(.boldRounded(fontSize: 48))
                     .shadow(radius: 8)
                 
+                Spacer()
+                
                 Image("mainBombImage")
                     .resizable()
                     .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width * 0.75)
+                                
+                Spacer()
                 
                 CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
                     //todo
                 }
                 
+                CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
+                    //todo
+                }
+                                
             }
             
         }
-        .ignoresSafeArea()
     }
 }
 
