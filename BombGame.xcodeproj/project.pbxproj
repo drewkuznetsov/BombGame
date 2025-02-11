@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859F00B2D5A8BF400356569 /* UIExtensions.swift */; };
+		888EB9D12D5BF88D000815CA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D02D5BF88D000815CA /* MainView.swift */; };
 		AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */; };
 		AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F802D5AB46A00389CA8 /* CategoryModel.swift */; };
 		AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		8859F00B2D5A8BF400356569 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		888EB9D02D5BF88D000815CA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		AD896F802D5AB46A00389CA8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
 				E48A58AB2D5BC79600C70964 /* GameView.swift */,
+				888EB9D02D5BF88D000815CA /* MainView.swift */,
 				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
 				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
 				AD896F7F2D5AB41C00389CA8 /* Model */,
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
+				888EB9D12D5BF88D000815CA /* MainView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
