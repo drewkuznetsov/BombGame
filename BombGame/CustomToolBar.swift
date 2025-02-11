@@ -69,7 +69,8 @@ struct ToolBarButton: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
-                .padding(14)
+                .padding(15)
+                .foregroundColor(.black)
         }
     }
 }
@@ -81,7 +82,7 @@ struct CustomToolBar_Previews: PreviewProvider {
                       leftButtonIcon: "Arrow", leftButtonAction: {
             // left button action
         },
-                      rightButtonIcon: "QuestionYellow") {
+                      rightButtonIcon: "Pause") {
             // right button action
         }
     }

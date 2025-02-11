@@ -32,7 +32,7 @@ extension Color {
     static let mainViewButton = Color("mainViewButton")
     static let categoryGrid = Color("categoryGrid")
     static let questionButton = Color("questionButtonColor")
-    static let primary = Color("primary")
+    static let primaryColor = Color("primaryColor")
     static let secondary = Color("secondary")
     
 }
