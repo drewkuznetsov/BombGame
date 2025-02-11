@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859F00B2D5A8BF400356569 /* UIExtensions.swift */; };
+		AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */; };
+		AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F802D5AB46A00389CA8 /* CategoryModel.swift */; };
+		AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */; };
+		AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */; };
+		AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F862D5B000300389CA8 /* CategoryButtonView.swift */; };
+		AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F892D5B089200389CA8 /* ParsingService.swift */; };
 		E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */; };
 		E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477D8232D5A5C9B0033AA5F /* ContentView.swift */; };
 		E477D8262D5A5C9D0033AA5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E477D8252D5A5C9D0033AA5F /* Assets.xcassets */; };
@@ -17,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		8859F00B2D5A8BF400356569 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		AD896F802D5AB46A00389CA8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryToolbarView.swift; sourceTree = "<group>"; };
+		AD896F862D5B000300389CA8 /* CategoryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonView.swift; sourceTree = "<group>"; };
+		AD896F892D5B089200389CA8 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		E477D81E2D5A5C9B0033AA5F /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BombGameApp.swift; sourceTree = "<group>"; };
 		E477D8232D5A5C9B0033AA5F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +48,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD896F7C2D5AAC4F00389CA8 /* CategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				AD896F892D5B089200389CA8 /* ParsingService.swift */,
+				AD896F882D5B00BD00389CA8 /* ViewModel */,
+				AD896F862D5B000300389CA8 /* CategoryButtonView.swift */,
+				AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */,
+				AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */,
+			);
+			path = CategoryView;
+			sourceTree = "<group>";
+		};
+		AD896F7F2D5AB41C00389CA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AD896F802D5AB46A00389CA8 /* CategoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD896F882D5B00BD00389CA8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E477D8152D5A5C9B0033AA5F = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +100,8 @@
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
 				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
 				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
+				AD896F7F2D5AB41C00389CA8 /* Model */,
+				AD896F7C2D5AAC4F00389CA8 /* CategoryView */,
 				E477D8272D5A5C9D0033AA5F /* Preview Content */,
 			);
 			path = BombGame;
@@ -144,8 +186,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
+				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
+				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,
+				AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */,
+				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
+				AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */,
 				E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
