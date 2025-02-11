@@ -24,6 +24,17 @@ struct MainView: View {
                 }, rightButtonIcon: "QuestionRed") {
                     //todo
                 }
+                
+                Text("ИГРА ДЛЯ КОМПАНИИ")
+                    .font(.boldRounded(fontSize: 28))
+                    .shadow(radius: 8)
+                
+                Text("БОМБА")
+                    .font(.boldRounded(fontSize: 48))
+                    .shadow(radius: 8)
+                
+                Image("mainBombImage")
+                
             }
             
         }
