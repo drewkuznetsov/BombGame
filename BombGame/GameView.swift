@@ -12,21 +12,18 @@ struct GameView: View {
     @State var isPlaying = false
     
     let labelText = "Нажмите \"запустить\" \n чтобы начать игру."
-    let questionText = "Назовите улицы Москвы"
+    let questionText = "Назовите виды зимнего спорта"
     
     var body: some View {
         
-        ZStack {
+        ZStack(alignment: .center) {
             
-                
-                // BackGround Image
-                Image("Topographic")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height:900)
-                    .clipped()
+            BackgroundImage()
+            Color.gameBackground
+                .opacity(0.5)
             
             VStack {
+                
                 //MARK: Custom ToolBar
                 CustomToolBar(title: "Игра",
                               leftButtonIcon: "Arrow", leftButtonAction: {
@@ -38,7 +35,7 @@ struct GameView: View {
                     self.isPlaying.toggle()
                 }
                 .padding(.top, 70)
-                Spacer()
+                
                 
                 //MARK: Label
                 Text(isPlaying ? questionText : labelText)
@@ -47,28 +44,24 @@ struct GameView: View {
                     .multilineTextAlignment(.center)
                 Spacer()
                 
-                //MARK: Bomb Image
-                Image("imageBomb")
-                    .resizable()
-                    .frame(width: 312,height: 350)
-                Spacer()
-
                 
                 //MARK: Start Button
-                
                 if (!isPlaying) {
                     CustomButton(title: "Запустить",
                                  backgroundColor: Color.gameViewButton) {
                         // Start button action
                         isPlaying.toggle()
                     }
+                                 .padding(.bottom, 90)
                 }
-                
-                Spacer()
-                Spacer()
-
             }
-        
+            
+            //MARK: Bomb Image
+            Image("imageBomb")
+                .resizable()
+                .frame(width: 312,height: 350)
+            Spacer()
+            
         }
     }
 }
