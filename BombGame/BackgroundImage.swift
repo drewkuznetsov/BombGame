@@ -12,9 +12,10 @@ struct BackgroundImage: View {
         // BackGround Image
         Image("Topographic")
             .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width, height:900)
-            .clipped()
+            .renderingMode(.template)
+            .scaledToFit()
+            .foregroundStyle(.black)
+            .opacity(0.2)
     }
 }
 

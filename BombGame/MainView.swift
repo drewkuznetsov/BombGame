@@ -22,11 +22,8 @@ struct MainView: View {
                 ZStack {
                     Color.mainBackground
                     
-                    Image("Topographic")
-                        .resizable()
-                        .renderingMode(.template)
-                        .foregroundStyle(.black)
-                        .opacity(0.1)
+                    BackgroundImage()
+                    
                     }
                 .ignoresSafeArea()
                 
