@@ -28,17 +28,17 @@ struct GameView: View {
     let questionText = "Назовите виды зимнего спорта"
     
     var body: some View {
-        
         NavigationView {
-            
-            ZStack(alignment: .center) {
-                
-                BackgroundImage()
-                Color.gameBackground
-                    .opacity(0.5)
-                
-                VStack {
+            ZStack(alignment: .top) {
+                ZStack {
+                    BackgroundImage()
                     
+                    Color.gameBackground
+                        .opacity(0.5)
+                }
+                .ignoresSafeArea()
+                
+                VStack(alignment: .center, spacing: 10) {
                     //MARK: Custom ToolBar
                     CustomToolBar(title: "Игра",
                                   leftButtonIcon: "Arrow", leftButtonAction: {
@@ -48,7 +48,8 @@ struct GameView: View {
                         // Play Button Action
                         isPlaying ? pauseGame() : playGame()
                     }
-                    .padding(.top, 70)
+                    
+                    Spacer()
                     
                     //MARK: Label
                     Text(isPlaying ? questionText : labelText)
@@ -56,6 +57,12 @@ struct GameView: View {
                         .bold(isPlaying)
                         .multilineTextAlignment(.center)
                     Text("\(Int(remainingTime))")
+                    
+                    Spacer()
+                    
+                    LottieView(animationName: "bomb2", loopMode: .playOnce, animationProgress: $animationProgress)
+                        .frame(width: 350)
+                    
                     Spacer()
                     
                     //MARK: Start Button
@@ -64,20 +71,8 @@ struct GameView: View {
                                      backgroundColor: Color.gameViewButton) {
                            startGame()
                         }
-                                     .padding(.bottom, 90)
                     }
                 }
-                
-                //MARK: Bomb Image
-//                Image("imageBomb")
-//                    .resizable()
-//                    .frame(width: 312,height: 350)
-                
-                LottieView(animationName: "bomb2", loopMode: .playOnce, animationProgress: $animationProgress)
-                    .frame(width: 300, height: 300)
-                
-                
-                Spacer()
             }
         }
         .onAppear {

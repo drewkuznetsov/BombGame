@@ -24,12 +24,12 @@ struct CategoryView: View {
     ]
 
     var body: some View {
-        ZStack {
-            Image("Topographic")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: 900)
-                .clipped()
+        ZStack(alignment: .top) {
+            ZStack {
+                Color.mainSheetBG
+                BackgroundImage()
+            }
+            .ignoresSafeArea()
 
             VStack {
                 CategoryToolbarView(
