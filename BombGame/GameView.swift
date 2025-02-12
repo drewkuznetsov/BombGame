@@ -45,6 +45,7 @@ struct GameView: View {
                         // Play Button Action
                         isPlaying ? pauseGame() : playGame()
                     }
+                    .padding(.top, 70)
                     
                     //MARK: Label
                     Text(isPlaying ? questionText : labelText)
