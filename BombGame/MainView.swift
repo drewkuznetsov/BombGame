@@ -26,7 +26,7 @@ struct MainView: View {
                         .renderingMode(.template)
                         .foregroundStyle(.black)
                         .opacity(0.1)
-                }
+                    }
                 .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 20) {
