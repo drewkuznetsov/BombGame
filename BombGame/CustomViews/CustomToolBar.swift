@@ -40,6 +40,7 @@ struct CustomToolBar: View {
             
 //            Spacer()
         }
+        .padding(.top, 70)
     }
 }
 
