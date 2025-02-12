@@ -67,6 +67,12 @@ struct HelpCategoryView: View {
 }
 
 
-#Preview {
-    HelpCategoryView()
+struct HelpCategoryView_Previews: PreviewProvider {
+    static var previews: some View {
+        HelpCategoryView()
+    }
 }
+
+//#Preview {
+//    HelpCategoryView()
+//}
