@@ -9,11 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     
+    
+    //MARK: - PRIVATE PROPERTIES
     @State private var isPresented = false
+    
+    
+    //MARK: - UI
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top) {
-                
                 ZStack {
                     Color.mainBackground
                     
@@ -26,11 +30,10 @@ struct MainView: View {
                 .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 20) {
-                    
                     CustomToolBar(title: "", leftButtonIcon: "gearWheel", leftButtonAction: {
-                        isPresented.toggle()
+                        //todo link to settingsView
                     }, rightButtonIcon: "QuestionRed") {
-                        //todo
+                        isPresented.toggle()
                     }
                     
                     VStack {
@@ -53,27 +56,25 @@ struct MainView: View {
                     Spacer()
                     
                     CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
-                        //todo
+                        //todo link to gameView
                     }
                     
                     CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
-                        //todo
+                        //todo link to categoryView
                     }
-                    
                 }
-                
             }
-            .border(.red)
-        }
-        .sheet(isPresented: $isPresented) {
-            RulesView()
-                .presentationDetents([.fraction(0.754)])
-                .presentationDragIndicator(.visible)
-                .ignoresSafeArea(edges: .bottom)
+            .sheet(isPresented: $isPresented) {
+                RulesView()
+                    .presentationDetents([.fraction(0.754)])
+                    .presentationDragIndicator(.visible)
+                    .ignoresSafeArea(edges: .bottom)
+            }
         }
     }
 }
 
+//MARK: - PREVIEW
 #Preview {
     MainView()
 }
