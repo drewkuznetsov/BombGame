@@ -8,16 +8,40 @@
 import Foundation
 
 class CategoryViewModel: ObservableObject {
-    @Published   var categories: [CategoryModel] = []
+    @Published var categories: [CategoryModel] = []
+    @Published var currentQuestion: String = ""
+       private var currentQuestionIndex: Int = 0
 
-        init(fileName: String = "CatAndQuestions") {
-            self.categories = ParsingService.parseStringsFile(named: fileName)
+      init(fileName: String) {
+          loadCategories(from: "questions")
+      }
+
+      func loadCategories(from fileName: String) {
+          guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
+              print("Failed to locate \(fileName).json in bundle.")
+              return
+          }
+
+          do {
+              let data = try Data(contentsOf: url)
+              let decodedData = try JSONDecoder().decode(CategoryList.self, from: data)
+              self.categories = decodedData.categories
+          } catch {
+              print("Error decoding JSON: \(error)")
+          }
+      }
+
+    func getNextQuestion(for category: Category, isAnswerCorrect: Bool) {
+            guard let categoryData = categories.first(where: { $0.name == category.rawValue }) else {
+                return
+            }
+
+            if isAnswerCorrect {
+                if currentQuestionIndex < categoryData.questions.count - 1 {
+                    currentQuestionIndex += 1
+                }
+            }
+
+            currentQuestion = categoryData.questions[currentQuestionIndex]
         }
-
-        func getQuestions(from selectedCategories: Set<String>) -> [QuestionModel] {
-            return categories
-                .filter { selectedCategories.contains($0.category) }
-                .flatMap { $0.questions }
-        }
-
 }
