@@ -8,65 +8,102 @@
 
 import SwiftUI
 
+
 struct CategoryView: View {
-    // MARK: - Properties
-    @State private var tappedCategory: Category? = nil
     @State private var selectedCategories: Set<Category> = []
+    @State private var currentCategory: Category? = nil // Tracks the active category
+    @State private var showingSheet: Bool = false
     @ObservedObject var viewModel: CategoryViewModel
+
     let backButton = "Arrow"
     let title = "Категории"
     let questionButton = "questionmark.circle.fill"
+
     private let adaptiveColumn = [
         GridItem(.adaptive(minimum: 150))
     ]
-    
+
     var body: some View {
         ZStack {
             Image("Topographic")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height:900)
+                .frame(width: UIScreen.main.bounds.width, height: 900)
                 .clipped()
+
             VStack {
                 CategoryToolbarView(
                     backButton: backButton,
                     title: title,
                     questionButton: questionButton,
                     onBack: {
-                        // back button action
+                        // Back button action
                     },
                     onQuestion: {
-                        //  question button action
+                        showingSheet.toggle()
                     }
                 )
-                .padding(.top,70)
-                
+                .sheet(isPresented: $showingSheet) {
+                    HelpCategoryView()
+                        .presentationDetents([.fraction(0.9)])
+                }
+                .padding(.top, 70)
+
                 LazyVGrid(columns: adaptiveColumn, spacing: 33) {
                     ForEach(Category.allCases) { category in
                         CategoryButtonView(
                             category: category,
-                            isSelected:selectedCategories.contains(category),
+                            isSelected: selectedCategories.contains(category),
+                            iconName: category.categoryIcon,
+                            forceCheckmark: false,
                             onSelect: {
                                 if selectedCategories.contains(category) {
                                     selectedCategories.remove(category)
-                                    
                                 } else {
                                     selectedCategories.insert(category)
+                                    currentCategory = category
+                                    viewModel.getNextQuestion(for: category, isAnswerCorrect: true) 
                                 }
                             }
                         )
                     }
                 }
-                .padding(.top, 88)
+                .padding(.top, 40)
+
+//                if let category = currentCategory {
+//                    VStack {
+//                        Text(viewModel.currentQuestion.isEmpty ? "Выберите категорию" : viewModel.currentQuestion)
+//                            .font(.title)
+//                            .foregroundColor(.black)
+//                            .padding()
+//                            .multilineTextAlignment(.center)
+//
+//                        HStack {
+//                            Button("Правильный ответ") {
+//                                viewModel.getNextQuestion(for: category, isAnswerCorrect: true)
+//                            }
+//                            .padding()
+//                            .background(Color.green)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//
+//                            Button("Неправильный ответ") {
+//                                print("проиграл")
+//                            }
+//                            .padding()
+//                            .background(Color.red)
+//                            .foregroundColor(.white)
+//                            .cornerRadius(10)
+//                        }
+//                    }
+//                    .padding(.top, 30)
+//                }
+                
                 Spacer()
             }
         }
     }
 }
-
-//#Preview {
-//    CategoryView(viewModel: CategoryViewModel(fileName: "categories"))
-//}
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {

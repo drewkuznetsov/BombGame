@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct BombGameApp: App {
     var body: some Scene {
-        var viewModel = CategoryViewModel()
+        let viewModel = CategoryViewModel(fileName: "questions")
         WindowGroup {
             CategoryView(viewModel: viewModel)
                 .environmentObject(viewModel)
