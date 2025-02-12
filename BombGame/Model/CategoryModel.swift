@@ -5,17 +5,15 @@
 //  Created by Ylyas Abdywahytow on 2/10/25.
 //
 
-
-struct CategoryModel {
-    var category: String
-    var description: String
-    var questions: [QuestionModel]
-    var isSelected: Bool = false  
+struct CategoryList: Codable {
+    let categories: [CategoryModel]
 }
 
-
-struct QuestionModel {
-    var question : String
+struct CategoryModel: Codable, Identifiable {
+    var id: String { name }
+    let name: String
+    let description: String
+    let questions: [String]
 }
 
 
@@ -42,6 +40,23 @@ enum Category: String, CaseIterable, Identifiable {
             return "cinema"
         case .nature:
             return "nature"
+        }
+    }
+    
+    var helpCategoryIcon: String {
+        switch self {
+        case .general:
+            return "general1"
+        case .sport:
+            return "sport"
+        case .life:
+            return  "life"
+        case .celebrities:
+            return "celebrities"
+        case .cinema:
+            return ""
+        case .nature:
+            return ""
         }
     }
 }

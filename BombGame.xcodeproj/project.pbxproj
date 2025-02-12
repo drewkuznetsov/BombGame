@@ -19,6 +19,11 @@
 		AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */; };
 		AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F862D5B000300389CA8 /* CategoryButtonView.swift */; };
 		AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F892D5B089200389CA8 /* ParsingService.swift */; };
+		ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */; };
+		ADE061D42D5C74B6009BDE6A /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = ADE061D32D5C74A4009BDE6A /* questions.json */; };
+		E416A4162D5CC4D300FD9E26 /* Bang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4152D5CC4D300FD9E26 /* Bang.mp3 */; };
+		E416A4182D5CC4D800FD9E26 /* Gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4172D5CC4D800FD9E26 /* Gong.mp3 */; };
+		E416A41A2D5CC4DF00FD9E26 /* Timer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */; };
 		E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426A8072D5BE1B10035323A /* CustomButton.swift */; };
 		E426A80A2D5BE42A0035323A /* BackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E426A8092D5BE42A0035323A /* BackgroundImage.swift */; };
 		E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */; };
@@ -43,6 +48,11 @@
 		AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryToolbarView.swift; sourceTree = "<group>"; };
 		AD896F862D5B000300389CA8 /* CategoryButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonView.swift; sourceTree = "<group>"; };
 		AD896F892D5B089200389CA8 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
+		ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCategoryView.swift; sourceTree = "<group>"; };
+		ADE061D32D5C74A4009BDE6A /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		E416A4152D5CC4D300FD9E26 /* Bang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bang.mp3; sourceTree = "<group>"; };
+		E416A4172D5CC4D800FD9E26 /* Gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gong.mp3; sourceTree = "<group>"; };
+		E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Timer.mp3; sourceTree = "<group>"; };
 		E426A8072D5BE1B10035323A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		E426A8092D5BE42A0035323A /* BackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundImage.swift; sourceTree = "<group>"; };
 		E477D81E2D5A5C9B0033AA5F /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,9 +90,10 @@
 			children = (
 				AD896F892D5B089200389CA8 /* ParsingService.swift */,
 				AD896F882D5B00BD00389CA8 /* ViewModel */,
+				AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */,
 				AD896F862D5B000300389CA8 /* CategoryButtonView.swift */,
 				AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */,
-				AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */,
+				ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */,
 			);
 			path = CategoryView;
 			sourceTree = "<group>";
@@ -107,6 +118,9 @@
 			isa = PBXGroup;
 			children = (
 				E477D82F2D5A74610033AA5F /* CatAndQuestions.strings */,
+				E416A4152D5CC4D300FD9E26 /* Bang.mp3 */,
+				E416A4172D5CC4D800FD9E26 /* Gong.mp3 */,
+				E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */,
 				E477D8202D5A5C9B0033AA5F /* BombGame */,
 				E477D81F2D5A5C9B0033AA5F /* Products */,
 			);
@@ -123,6 +137,7 @@
 		E477D8202D5A5C9B0033AA5F /* BombGame */ = {
 			isa = PBXGroup;
 			children = (
+				ADE061D32D5C74A4009BDE6A /* questions.json */,
 				E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */,
 				E426A8072D5BE1B10035323A /* CustomButton.swift */,
 				E426A8092D5BE42A0035323A /* BackgroundImage.swift */,
@@ -209,7 +224,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E477D8302D5A74610033AA5F /* CatAndQuestions.strings in Resources */,
+				ADE061D42D5C74B6009BDE6A /* questions.json in Resources */,
+				E416A4162D5CC4D300FD9E26 /* Bang.mp3 in Resources */,
+				E416A4182D5CC4D800FD9E26 /* Gong.mp3 in Resources */,
 				E477D8292D5A5C9D0033AA5F /* Preview Assets.xcassets in Resources */,
+				E416A41A2D5CC4DF00FD9E26 /* Timer.mp3 in Resources */,
 				E477D8262D5A5C9D0033AA5F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +243,7 @@
 				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
 				888EB9D12D5BF88D000815CA /* MainView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
+				ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
 				888EB9D72D5CADB3000815CA /* PunishmentsModel.swift in Sources */,

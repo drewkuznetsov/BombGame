@@ -76,6 +76,11 @@ struct MainView: View {
 }
 
 //MARK: - PREVIEW
-#Preview {
-    MainView()
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
 }
+//#Preview {
+//    MainView()
+//}

@@ -80,6 +80,11 @@ struct RulesView: View {
 
 
 //MARK: - PREVIEW
-#Preview {
-    RulesView()
+struct RulesView_Previews: PreviewProvider {
+    static var previews: some View {
+        RulesView()
+    }
 }
+//#Preview {
+//    RulesView()
+//}
