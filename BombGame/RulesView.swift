@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct RulesView: View {
-    let rulesModel = RulesModel()
+    
+    
+    //MARK: - PRIVATE PROPERTIES
+    private let rulesModel = RulesModel()
+    
+    
+    //MARK: - UI
     var body: some View {
         ZStack(alignment: .top) {
             ZStack {
@@ -72,6 +78,8 @@ struct RulesView: View {
     }
 }
 
+
+//MARK: - PREVIEW
 struct RulesView_Previews: PreviewProvider {
     static var previews: some View {
         RulesView()

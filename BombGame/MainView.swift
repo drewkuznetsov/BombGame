@@ -12,7 +12,8 @@ struct MainView: View {
     
     //MARK: - PRIVATE PROPERTIES
     @State private var isPresented = false
-    
+    @StateObject private var viewModel = PunishmentsViewModel()
+
     
     //MARK: - UI
     var body: some View {
@@ -26,7 +27,7 @@ struct MainView: View {
                         .renderingMode(.template)
                         .foregroundStyle(.black)
                         .opacity(0.1)
-                }
+                    }
                 .ignoresSafeArea()
                 
                 VStack(alignment: .center, spacing: 20) {
