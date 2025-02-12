@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8859F00B2D5A8BF400356569 /* UIExtensions.swift */; };
+		888EB9D12D5BF88D000815CA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D02D5BF88D000815CA /* MainView.swift */; };
+		888EB9D32D5C0C06000815CA /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D22D5C0C06000815CA /* RulesView.swift */; };
+		888EB9D52D5C0EC4000815CA /* RulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D42D5C0EC4000815CA /* RulesModel.swift */; };
 		AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */; };
 		AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F802D5AB46A00389CA8 /* CategoryModel.swift */; };
 		AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		8859F00B2D5A8BF400356569 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		888EB9D02D5BF88D000815CA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		888EB9D22D5C0C06000815CA /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
+		888EB9D42D5C0EC4000815CA /* RulesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesModel.swift; sourceTree = "<group>"; };
 		AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		AD896F802D5AB46A00389CA8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
 				E48A58AB2D5BC79600C70964 /* GameView.swift */,
+				888EB9D02D5BF88D000815CA /* MainView.swift */,
+				888EB9D22D5C0C06000815CA /* RulesView.swift */,
+				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
 				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
 				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
 				AD896F7F2D5AB41C00389CA8 /* Model */,
@@ -206,16 +215,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
+				888EB9D12D5BF88D000815CA /* MainView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
 				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,
 				E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */,
+				888EB9D52D5C0EC4000815CA /* RulesModel.swift in Sources */,
 				AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */,
 				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
 				E426A80A2D5BE42A0035323A /* BackgroundImage.swift in Sources */,
 				E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */,
+				888EB9D32D5C0C06000815CA /* RulesView.swift in Sources */,
 				AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */,
 				E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */,
 				E48A58AA2D5BC2DD00C70964 /* CustomToolBar.swift in Sources */,
