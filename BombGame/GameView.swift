@@ -14,7 +14,7 @@ struct GameView: View {
     @State private var soundGong: AVAudioPlayer?
     @State private var soundBang: AVAudioPlayer?
     
-    @State private var remainingTime = 30
+    @State private var remainingTime = 10
     @State private var timer: Timer?
     
     @State var isPlaying = false
@@ -51,7 +51,10 @@ struct GameView: View {
                         .font(Font.regularRounded(fontSize: 28))
                         .bold(isPlaying)
                         .multilineTextAlignment(.center)
+                    Text("\(remainingTime)")
                     Spacer()
+                    
+                    
                     
                     
                     //MARK: Start Button
@@ -82,12 +85,14 @@ extension GameView {
     private func startGame() {
         PlayGongSound()
         playTimerSound()
+        startTimer()
         isPlaying.toggle()
         startPlaing.toggle()
     }
     
     private func pauseGame() {
         pauseSound()
+        stopTimer()
         isPlaying.toggle()
     }
     
@@ -99,6 +104,7 @@ extension GameView {
             return
         }
         
+        startTimer()
         playTimerSound()
         isPlaying.toggle()
     }
@@ -107,12 +113,30 @@ extension GameView {
         playBangSound()
         pauseSound()
         isPlaying.toggle()
+        startPlaing.toggle()
+        remainingTime = 10
     }
 }
 
 //MARK: Timer Extension
 extension GameView {
     
+    func startTimer() {
+            stopTimer() // Остановка предыдущего таймера, если есть
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                if remainingTime > 0 {
+                    remainingTime -= 1
+                } else {
+                    stopTimer()
+                    stopGame()
+                }
+            }
+        }
+        
+        func stopTimer() {
+            timer?.invalidate()
+            timer = nil
+        }
 }
 
 //MARK: Play Audio Sounds Extension
