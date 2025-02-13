@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		377DDD7E2D5E9294003F5C0A /* FinalGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377DDD7D2D5E928C003F5C0A /* FinalGameView.swift */; };
 		37C00FF22D5CEE7A009A78AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 37C00FF12D5CEE7A009A78AE /* Lottie */; };
 		37C010072D5CEEC4009A78AE /* bomb2.json in Resources */ = {isa = PBXBuildFile; fileRef = 37C010062D5CEEC4009A78AE /* bomb2.json */; };
 		37C0100A2D5CEEEB009A78AE /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C010092D5CEEEB009A78AE /* SwiftUIView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		377DDD7D2D5E928C003F5C0A /* FinalGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalGameView.swift; sourceTree = "<group>"; };
 		37C010062D5CEEC4009A78AE /* bomb2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bomb2.json; sourceTree = "<group>"; };
 		37C010082D5CEEEB009A78AE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		37C010092D5CEEEB009A78AE /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		377DDD7C2D5E924B003F5C0A /* FinalGameView */ = {
+			isa = PBXGroup;
+			children = (
+				377DDD7D2D5E928C003F5C0A /* FinalGameView.swift */,
+			);
+			path = FinalGameView;
+			sourceTree = "<group>";
+		};
 		37C010052D5CEEAE009A78AE /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 		ADE1E80B2D5DDF4900C3BB8E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				377DDD7C2D5E924B003F5C0A /* FinalGameView */,
 				ADE1E80D2D5DDF9B00C3BB8E /* MainView */,
 				ADE1E8122D5DE2FC00C3BB8E /* SettingsView */,
 				ADE1E80F2D5DDFFD00C3BB8E /* RulesView */,
@@ -368,6 +379,7 @@
 				37C0100A2D5CEEEB009A78AE /* SwiftUIView.swift in Sources */,
 				37C0100B2D5CEEEB009A78AE /* LottieView.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
+				377DDD7E2D5E9294003F5C0A /* FinalGameView.swift in Sources */,
 				888EB9D72D5CADB3000815CA /* PunishmentsModel.swift in Sources */,
 				ADE1E8142D5DE32800C3BB8E /* SettingsView.swift in Sources */,
 				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,

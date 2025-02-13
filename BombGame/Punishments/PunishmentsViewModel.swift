@@ -13,7 +13,7 @@ class PunishmentsViewModel: ObservableObject {
     //MARK: - METHODS
     func getRandomPunishment() -> String{
         let allPunishments = PunishmentsModel.allCases
-        let randomIndex = Int.random(in: 0...allPunishments.count)
+        let randomIndex = Int.random(in: 0..<allPunishments.count)
         return allPunishments[randomIndex].rawValue
     }
 }
