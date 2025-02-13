@@ -9,15 +9,21 @@ import SwiftUI
 import AVFoundation
 
 struct GameView: View {
+    // MARK: - Properties
+    @ObservedObject var parsingService: ParsingService
+    @EnvironmentObject var appCoordinator: AppCoordinator
+    var selectedCategory: Category
     
+    @State private var currentQuestion: String = ""
+    // MARK: - Game State
     @State private var soundTimer: AVAudioPlayer?
     @State private var soundGong: AVAudioPlayer?
     @State private var soundBang: AVAudioPlayer?
-    
+    // MARK: - Animation
     @State private var animationProgress: CGFloat = 0
     @State private var remainingTime: Double = 10
     @State private var timer: Timer?
-    
+    // MARK: - Audio
     @State var isPlaying = false
     @State var startPlaying = false
     
@@ -28,7 +34,6 @@ struct GameView: View {
     let questionText = "Назовите виды зимнего спорта"
     
     var body: some View {
-        NavigationView {
             ZStack(alignment: .top) {
                 ZStack {
                     BackgroundImage()
@@ -43,7 +48,7 @@ struct GameView: View {
                     CustomToolBar(title: "Игра",
                                   leftButtonIcon: "Arrow", leftButtonAction: {
                         
-                        // Back Button Action
+                        appCoordinator.pop()
                     }, rightButtonIcon: isPlaying ? "Pause" : "Play") {
                         // Play Button Action
                         isPlaying ? pauseGame() : playGame()
@@ -52,7 +57,7 @@ struct GameView: View {
                     Spacer()
                     
                     //MARK: Label
-                    Text(isPlaying ? questionText : labelText)
+                    Text(isPlaying ? currentQuestion : labelText)
                         .font(Font.regularRounded(fontSize: 28))
                         .bold(isPlaying)
                         .multilineTextAlignment(.center)
@@ -74,12 +79,15 @@ struct GameView: View {
                     }
                 }
             }
-        }
+        
         .onAppear {
             updateAnimationProgress()
+            loadRandomQuestion()
         }
     }
 }
+
+
 
 //MARK: - Animation
 
@@ -100,6 +108,22 @@ extension GameView {
         print("anim:", animationProgress)
         // Убедимся, что прогресс не выходит за пределы 0...1
         animationProgress = min(max(animationProgress, 0), 1)
+    }
+}
+
+
+//MARK: - Load a Random Question
+extension GameView {
+    private func loadRandomQuestion() {
+        let questions = parsingService.categories
+            .first(where: { $0.name == selectedCategory.rawValue })?
+            .questions ?? []
+
+        if let question = questions.randomElement() {
+            currentQuestion = question
+        } else {
+            currentQuestion = "Нет доступных вопросов."
+        }
     }
 }
 
@@ -200,6 +224,6 @@ extension GameView {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(parsingService: ParsingService(), selectedCategory: .cinema)
     }
 }

@@ -72,7 +72,3 @@ struct HelpCategoryView_Previews: PreviewProvider {
         HelpCategoryView()
     }
 }
-
-//#Preview {
-//    HelpCategoryView()
-//}
