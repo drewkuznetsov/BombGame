@@ -18,7 +18,7 @@ struct CategoryModel: Codable, Identifiable {
 
 
 enum Category: String, CaseIterable, Identifiable {
-    case general = "О разном"
+    case general = "О Разном"
     case sport = "Спорт и Хобби"
     case life = "Про Жизнь"
     case celebrities = "Знаменитости"

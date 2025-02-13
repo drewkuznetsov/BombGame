@@ -5,8 +5,6 @@
 //  Created by Ylyas Abdywahytow on 2/10/25.
 //
 
-
-
 import SwiftUI
 
 struct CategoryButtonView: View {
@@ -46,5 +44,6 @@ struct CategoryButtonView: View {
                     .stroke(.black, lineWidth: 1)
             )
         }
+        .fixedSize()
     }
 }

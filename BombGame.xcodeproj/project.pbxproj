@@ -25,6 +25,9 @@
 		AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F892D5B089200389CA8 /* ParsingService.swift */; };
 		ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */; };
 		ADE061D42D5C74B6009BDE6A /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = ADE061D32D5C74A4009BDE6A /* questions.json */; };
+		ADE1E8082D5DC1B900C3BB8E /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8072D5DC1A900C3BB8E /* AppCordinator.swift */; };
+		ADE1E80A2D5DC20E00C3BB8E /* CordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8092D5DC20A00C3BB8E /* CordinatorView.swift */; };
+		ADE1E8142D5DE32800C3BB8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */; };
 		E416A4162D5CC4D300FD9E26 /* Bang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4152D5CC4D300FD9E26 /* Bang.mp3 */; };
 		E416A4182D5CC4D800FD9E26 /* Gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4172D5CC4D800FD9E26 /* Gong.mp3 */; };
 		E416A41A2D5CC4DF00FD9E26 /* Timer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */; };
@@ -57,6 +60,9 @@
 		AD896F892D5B089200389CA8 /* ParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingService.swift; sourceTree = "<group>"; };
 		ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCategoryView.swift; sourceTree = "<group>"; };
 		ADE061D32D5C74A4009BDE6A /* questions.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		ADE1E8072D5DC1A900C3BB8E /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
+		ADE1E8092D5DC20A00C3BB8E /* CordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordinatorView.swift; sourceTree = "<group>"; };
+		ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E416A4152D5CC4D300FD9E26 /* Bang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bang.mp3; sourceTree = "<group>"; };
 		E416A4172D5CC4D800FD9E26 /* Gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gong.mp3; sourceTree = "<group>"; };
 		E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Timer.mp3; sourceTree = "<group>"; };
@@ -106,12 +112,11 @@
 		AD896F7C2D5AAC4F00389CA8 /* CategoryView */ = {
 			isa = PBXGroup;
 			children = (
-				AD896F892D5B089200389CA8 /* ParsingService.swift */,
 				AD896F882D5B00BD00389CA8 /* ViewModel */,
+				ADE1E8172D5DEB5600C3BB8E /* HelpCategoryView */,
 				AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */,
 				AD896F862D5B000300389CA8 /* CategoryButtonView.swift */,
 				AD896F842D5AFDA600389CA8 /* CatergoryToolbarView.swift */,
-				ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */,
 			);
 			path = CategoryView;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				AD896F802D5AB46A00389CA8 /* CategoryModel.swift */,
+				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -130,6 +136,103 @@
 				AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ADE1E8062D5DC19F00C3BB8E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				ADE1E8092D5DC20A00C3BB8E /* CordinatorView.swift */,
+				ADE1E8072D5DC1A900C3BB8E /* AppCordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		ADE1E80B2D5DDF4900C3BB8E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADE1E80D2D5DDF9B00C3BB8E /* MainView */,
+				ADE1E8122D5DE2FC00C3BB8E /* SettingsView */,
+				ADE1E80F2D5DDFFD00C3BB8E /* RulesView */,
+				ADE1E80C2D5DDF7400C3BB8E /* GameView */,
+				AD896F7C2D5AAC4F00389CA8 /* CategoryView */,
+				E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */,
+				E426A8072D5BE1B10035323A /* CustomButton.swift */,
+				E426A8092D5BE42A0035323A /* BackgroundImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ADE1E80C2D5DDF7400C3BB8E /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				E48A58AB2D5BC79600C70964 /* GameView.swift */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
+		ADE1E80D2D5DDF9B00C3BB8E /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				888EB9D02D5BF88D000815CA /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		ADE1E80F2D5DDFFD00C3BB8E /* RulesView */ = {
+			isa = PBXGroup;
+			children = (
+				888EB9D22D5C0C06000815CA /* RulesView.swift */,
+			);
+			path = RulesView;
+			sourceTree = "<group>";
+		};
+		ADE1E8102D5DE03100C3BB8E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		ADE1E8112D5DE0BB00C3BB8E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ADE1E8122D5DE2FC00C3BB8E /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		ADE1E8152D5DE6D800C3BB8E /* ParsingService */ = {
+			isa = PBXGroup;
+			children = (
+				AD896F892D5B089200389CA8 /* ParsingService.swift */,
+				ADE061D32D5C74A4009BDE6A /* questions.json */,
+			);
+			path = ParsingService;
+			sourceTree = "<group>";
+		};
+		ADE1E8162D5DE82800C3BB8E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		ADE1E8172D5DEB5600C3BB8E /* HelpCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				ADE061D12D5C0418009BDE6A /* HelpCategoryView.swift */,
+			);
+			path = HelpCategoryView;
 			sourceTree = "<group>";
 		};
 		E477D8152D5A5C9B0033AA5F = {
@@ -155,22 +258,16 @@
 		E477D8202D5A5C9B0033AA5F /* BombGame */ = {
 			isa = PBXGroup;
 			children = (
-				37C010052D5CEEAE009A78AE /* Lottie */,
-				ADE061D32D5C74A4009BDE6A /* questions.json */,
-				E48A58A92D5BC2DD00C70964 /* CustomToolBar.swift */,
-				E426A8072D5BE1B10035323A /* CustomButton.swift */,
-				E426A8092D5BE42A0035323A /* BackgroundImage.swift */,
-				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
-				E48A58AB2D5BC79600C70964 /* GameView.swift */,
-				888EB9D02D5BF88D000815CA /* MainView.swift */,
-				888EB9D22D5C0C06000815CA /* RulesView.swift */,
-				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
-				8859F00B2D5A8BF400356569 /* UIExtensions.swift */,
-				888EB9D92D5CB814000815CA /* Punishments */,
-				E477D8252D5A5C9D0033AA5F /* Assets.xcassets */,
+				ADE1E8102D5DE03100C3BB8E /* App */,
 				AD896F7F2D5AB41C00389CA8 /* Model */,
-				AD896F7C2D5AAC4F00389CA8 /* CategoryView */,
+				ADE1E8152D5DE6D800C3BB8E /* ParsingService */,
+				ADE1E8062D5DC19F00C3BB8E /* Coordinator */,
+				ADE1E80B2D5DDF4900C3BB8E /* Views */,
+				37C010052D5CEEAE009A78AE /* Lottie */,
+				888EB9D92D5CB814000815CA /* Punishments */,
+				ADE1E8162D5DE82800C3BB8E /* Resources */,
+				ADE1E8112D5DE0BB00C3BB8E /* Extensions */,
 				E477D8272D5A5C9D0033AA5F /* Preview Content */,
 			);
 			path = BombGame;
@@ -272,17 +369,20 @@
 				37C0100B2D5CEEEB009A78AE /* LottieView.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
 				888EB9D72D5CADB3000815CA /* PunishmentsModel.swift in Sources */,
+				ADE1E8142D5DE32800C3BB8E /* SettingsView.swift in Sources */,
 				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,
 				E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */,
 				888EB9D52D5C0EC4000815CA /* RulesModel.swift in Sources */,
 				AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */,
 				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
 				888EB9DD2D5CBB19000815CA /* PunishmentsViewModel.swift in Sources */,
+				ADE1E80A2D5DC20E00C3BB8E /* CordinatorView.swift in Sources */,
 				E426A80A2D5BE42A0035323A /* BackgroundImage.swift in Sources */,
 				E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */,
 				888EB9D32D5C0C06000815CA /* RulesView.swift in Sources */,
 				AD896F8A2D5B089E00389CA8 /* ParsingService.swift in Sources */,
 				E477D8222D5A5C9B0033AA5F /* BombGameApp.swift in Sources */,
+				ADE1E8082D5DC1B900C3BB8E /* AppCordinator.swift in Sources */,
 				E48A58AA2D5BC2DD00C70964 /* CustomToolBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,15 +9,15 @@ import SwiftUI
 
 struct MainView: View {
     
-    
     //MARK: - PRIVATE PROPERTIES
     @State private var isPresented = false
     @StateObject private var viewModel = PunishmentsViewModel()
+    @EnvironmentObject var appCoordinator: AppCoordinator
+    @EnvironmentObject var categoryViewModel: CategoryViewModel
 
     
     //MARK: - UI
     var body: some View {
-        NavigationStack {
             ZStack(alignment: .top) {
                 ZStack {
                     Color.mainBackground
@@ -29,7 +29,7 @@ struct MainView: View {
                 
                 VStack(alignment: .center, spacing: 20) {
                     CustomToolBar(title: "", leftButtonIcon: "gearWheel", leftButtonAction: {
-                        //todo link to settingsView
+                        appCoordinator.push(.settingsView)
                     }, rightButtonIcon: "QuestionRed") {
                         isPresented.toggle()
                     }
@@ -55,10 +55,16 @@ struct MainView: View {
                     
                     CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
                         //todo link to gameView
-                    }
+                        if categoryViewModel.selectedCategories.isEmpty {
+                               print("No category selected!")
+                           } else {
+                               let selectedCategory = categoryViewModel.selectedCategories.first!
+                               appCoordinator.push(.gameView(selectedCategory: selectedCategory))
+                           }                    }
                     
                     CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
                         //todo link to categoryView
+                        appCoordinator.push(.categoryView)
                     }
                 }
             }
@@ -68,14 +74,17 @@ struct MainView: View {
                     .presentationDragIndicator(.visible)
                     .ignoresSafeArea(edges: .bottom)
             }
-        }
     }
 }
 
 //MARK: - PREVIEW
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
+        let appCoordinator = AppCoordinator()
+        let categoryViewModel = CategoryViewModel()
         MainView()
+            .environmentObject(appCoordinator)
+            .environmentObject(categoryViewModel)
     }
 }
 //#Preview {
