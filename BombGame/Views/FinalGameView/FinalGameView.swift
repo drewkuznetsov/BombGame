@@ -9,9 +9,9 @@ import SwiftUI
 
 struct FinalGameView: View {
     
-    @ObservedObject var punishmentsViewModel = PunishmentsViewModel()
-    
-    @State var punishments = ""
+    //    @ObservedObject var punishmentsViewModel = PunishmentsViewModel()
+    @State private var punishment: String = PunishmentsViewModel.shared.getRandomPunishment()
+    @State private var lastPunishment: String? = nil
     
     var body: some View {
         NavigationView {
@@ -39,7 +39,7 @@ struct FinalGameView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 250, height: 250)
                             
-                            Text(punishments)
+                            Text(punishment)
                                 .font(Font.boldRounded(fontSize: 30))
                                 .foregroundStyle(Color.primaryColor)
                                 .multilineTextAlignment(.center)
@@ -48,7 +48,7 @@ struct FinalGameView: View {
                             
                             CustomButton(title: "Другое задание",
                                          backgroundColor: Color.gameViewButton) {
-                                punishments = punishmentsViewModel.getRandomPunishment()
+                                checkPunishment()
                             }
                             
                             CustomButton(title: "Начать заново",
@@ -62,11 +62,24 @@ struct FinalGameView: View {
                     }
                 }
                 .onAppear() {
-                    punishments = punishmentsViewModel.getRandomPunishment()
+                    punishment = PunishmentsViewModel.shared.getRandomPunishment()
                 }
             }
             
         }
+    }
+    
+    
+    //MARK: - METHODS
+    func checkPunishment() {
+        var newPunishment: String
+        
+        repeat {
+            newPunishment = PunishmentsViewModel.shared.getRandomPunishment()
+        } while newPunishment == lastPunishment
+                    
+        punishment = newPunishment
+        lastPunishment = newPunishment
     }
 }
 

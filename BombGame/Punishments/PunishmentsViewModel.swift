@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PunishmentsViewModel: ObservableObject {
+class PunishmentsViewModel {
 
     
     //MARK: - PROPERTIES
