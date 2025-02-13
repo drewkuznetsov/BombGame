@@ -11,7 +11,7 @@ struct MainView: View {
     
     //MARK: - PRIVATE PROPERTIES
     @State private var isPresented = false
-    @StateObject private var viewModel = PunishmentsViewModel()
+//    @StateObject private var viewModel = PunishmentsViewModel()
     @EnvironmentObject var appCoordinator: AppCoordinator
     @EnvironmentObject var categoryViewModel: CategoryViewModel
 
