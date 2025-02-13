@@ -48,6 +48,7 @@ struct GameView: View {
                         // Play Button Action
                         isPlaying ? pauseGame() : playGame()
                     }
+                    .foregroundStyle(Color.primaryColor)
                     
                     Spacer()
                     

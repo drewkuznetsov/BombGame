@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37010E4B2D5E4C8E00CC6C35 /* FinalGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37010E4A2D5E4C8E00CC6C35 /* FinalGameView.swift */; };
 		37C00FF22D5CEE7A009A78AE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 37C00FF12D5CEE7A009A78AE /* Lottie */; };
 		37C010072D5CEEC4009A78AE /* bomb2.json in Resources */ = {isa = PBXBuildFile; fileRef = 37C010062D5CEEC4009A78AE /* bomb2.json */; };
 		37C0100A2D5CEEEB009A78AE /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C010092D5CEEEB009A78AE /* SwiftUIView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		37010E4A2D5E4C8E00CC6C35 /* FinalGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalGameView.swift; sourceTree = "<group>"; };
 		37C010062D5CEEC4009A78AE /* bomb2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bomb2.json; sourceTree = "<group>"; };
 		37C010082D5CEEEB009A78AE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		37C010092D5CEEEB009A78AE /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				E477D8212D5A5C9B0033AA5F /* BombGameApp.swift */,
 				E477D8232D5A5C9B0033AA5F /* ContentView.swift */,
 				E48A58AB2D5BC79600C70964 /* GameView.swift */,
+				37010E4A2D5E4C8E00CC6C35 /* FinalGameView.swift */,
 				888EB9D02D5BF88D000815CA /* MainView.swift */,
 				888EB9D22D5C0C06000815CA /* RulesView.swift */,
 				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
+				37010E4B2D5E4C8E00CC6C35 /* FinalGameView.swift in Sources */,
 				888EB9D12D5BF88D000815CA /* MainView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */,
