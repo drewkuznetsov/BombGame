@@ -34,51 +34,57 @@ struct GameView: View {
     let questionText = "Назовите виды зимнего спорта"
     
     var body: some View {
-            ZStack(alignment: .top) {
-                ZStack {
-                    BackgroundImage()
-                    
-                    Color.gameBackground
-                        .opacity(0.5)
-                }
-                .ignoresSafeArea()
+        ZStack(alignment: .top) {
+            ZStack {
+                BackgroundImage()
                 
-                VStack(alignment: .center, spacing: 10) {
-                    //MARK: Custom ToolBar
-                    CustomToolBar(title: "Игра",
-                                  leftButtonIcon: "Arrow", leftButtonAction: {
-                        
-                        appCoordinator.pop()
-                    }, rightButtonIcon: isPlaying ? "Pause" : "Play") {
-                        // Play Button Action
-                        isPlaying ? pauseGame() : playGame()
+                Color.gameBackground
+                    .opacity(0.5)
+            }
+            .ignoresSafeArea()
+            
+            VStack(alignment: .center, spacing: 10) {
+                //MARK: Custom ToolBar
+                CustomToolBar(title: "Игра",
+                              leftButtonIcon: "Arrow", leftButtonAction: {
+                    
+                    appCoordinator.pop()
+                }, rightButtonIcon: isPlaying ? "Pause" : "Play") {
+                    // Play Button Action
+                    isPlaying ? pauseGame() : playGame()
+                }
+                
+                Spacer()
+                
+                //MARK: Label
+                Text(isPlaying ? currentQuestion : labelText)
+                    .font(Font.regularRounded(fontSize: 28))
+                    .bold(isPlaying)
+                    .multilineTextAlignment(.center)
+                Text("\(Int(remainingTime))")
+                
+                Spacer()
+                
+                LottieView(animationName: "bomb2", loopMode: .playOnce, animationProgress: $animationProgress)
+                    .frame(width: 350)
+                
+                Spacer()
+                
+                //MARK: Start Button
+                if (!startPlaying) {
+                    CustomButton(title: "Запустить",
+                                 backgroundColor: Color.gameViewButton) {
+                        startGame()
                     }
-                    
-                    Spacer()
-                    
-                    //MARK: Label
-                    Text(isPlaying ? currentQuestion : labelText)
-                        .font(Font.regularRounded(fontSize: 28))
-                        .bold(isPlaying)
-                        .multilineTextAlignment(.center)
-                    Text("\(Int(remainingTime))")
-                    
-                    Spacer()
-                    
-                    LottieView(animationName: "bomb2", loopMode: .playOnce, animationProgress: $animationProgress)
-                        .frame(width: 350)
-                    
-                    Spacer()
-                    
-                    //MARK: Start Button
-                    if (!startPlaying) {
-                        CustomButton(title: "Запустить",
-                                     backgroundColor: Color.gameViewButton) {
-                           startGame()
-                        }
+                } else {
+                    CustomButton(title: "Запустить",
+                                 backgroundColor: Color.gameViewButton) {
+                        startGame()
                     }
+                                 .hidden()
                 }
             }
+        }
         
         .onAppear {
             updateAnimationProgress()
@@ -100,7 +106,7 @@ extension GameView {
             animationProgress = CGFloat((totalTime - timeLeftFor70) / totalTime) * 0.5 // Прогресс рассчитываем относительно totalTime
         } else {
             // После (или когда currentTime <= extraTime): быстрая анимация до 100%
-             let progressBeyond70Percent = min((extraTime - remainingTime) / extraTime, 3.0)
+            let progressBeyond70Percent = min((extraTime - remainingTime) / extraTime, 3.0)
             //  Сколько прошло времени с 70%
             animationProgress = 0.2 + CGFloat(progressBeyond70Percent) * 0.6
             print("prog:",progressBeyond70Percent)
@@ -118,7 +124,7 @@ extension GameView {
         let questions = parsingService.categories
             .first(where: { $0.name == selectedCategory.rawValue })?
             .questions ?? []
-
+        
         if let question = questions.randomElement() {
             currentQuestion = question
         } else {
@@ -171,22 +177,22 @@ extension GameView {
 extension GameView {
     
     func startTimer() {
-            stopTimer() // Остановка предыдущего таймера, если есть
-            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                if remainingTime > 0 {
-                    remainingTime -= 0.01
-                } else {
-                    stopTimer()
-                    stopGame()
-                }
-                updateAnimationProgress()
+        stopTimer() // Остановка предыдущего таймера, если есть
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+            if remainingTime > 0 {
+                remainingTime -= 0.01
+            } else {
+                stopTimer()
+                stopGame()
             }
+            updateAnimationProgress()
         }
-        
-        func stopTimer() {
-            timer?.invalidate()
-            timer = nil
-        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
 }
 
 //MARK: Play Audio Sounds Extension
@@ -206,8 +212,8 @@ extension GameView {
     }
     
     func pauseSound() {
-            soundTimer?.pause()
-        }
+        soundTimer?.pause()
+    }
     
     func playSound(named fileName: String, player: inout AVAudioPlayer?) {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") {
