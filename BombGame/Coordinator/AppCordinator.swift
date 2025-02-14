@@ -13,6 +13,7 @@ enum Screen: Identifiable, Hashable {
     case categoryView
     case gameView(selectedCategory: Category)
     case settingsView
+    case finalGameView
     
     var id: Self { return self }
 }
@@ -54,6 +55,9 @@ class AppCoordinator: AppCoordinatorProtocol {
                 .navigationBarBackButtonHidden(true)
         case .settingsView:
             SettingsView()
+                .navigationBarBackButtonHidden(true)
+        case .finalGameView:
+            FinalGameView()
                 .navigationBarBackButtonHidden(true)
         }
     }

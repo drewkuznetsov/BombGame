@@ -34,5 +34,6 @@ extension Color {
     static let questionButton = Color("questionButtonColor")
     static let primaryColor = Color("primaryColor")
     static let secondary = Color("secondary")
+    static let settingsMusic = Color("settingsMusic")
     
 }

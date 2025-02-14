@@ -10,7 +10,7 @@ import SwiftUI
 struct FinalGameView: View {
     
     @ObservedObject var punishmentsViewModel = PunishmentsViewModel()
-    
+    @EnvironmentObject var coordinator: AppCoordinator
     @State var punishments = ""
     
     var body: some View {
@@ -53,7 +53,7 @@ struct FinalGameView: View {
                             
                             CustomButton(title: "Начать заново",
                                          backgroundColor: Color.gameViewButton) {
-                                print("переход на GameView")
+                                coordinator.push(.mainView)
                             }
                         }
                         .frame(width: geometry.size.width-10)
@@ -71,5 +71,7 @@ struct FinalGameView: View {
 }
 
 #Preview {
+    let coordinator = AppCoordinator()
     FinalGameView()
+        .environmentObject(coordinator)
 }
