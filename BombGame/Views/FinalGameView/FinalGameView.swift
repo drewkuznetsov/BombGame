@@ -12,9 +12,10 @@ struct FinalGameView: View {
     //    @ObservedObject var punishmentsViewModel = PunishmentsViewModel()
     @State private var punishment: String = PunishmentsViewModel.shared.getRandomPunishment()
     @State private var lastPunishment: String? = nil
+    @EnvironmentObject var coordinator: AppCoordinator
     
     var body: some View {
-        NavigationView {
+        
             ZStack(alignment: .top) {
                 ZStack {
                     BackgroundImage()
@@ -53,7 +54,7 @@ struct FinalGameView: View {
                             
                             CustomButton(title: "Начать заново",
                                          backgroundColor: Color.gameViewButton) {
-                                print("переход на GameView")
+                                coordinator.push(.mainView)
                             }
                         }
                         .frame(width: geometry.size.width-10)
@@ -65,8 +66,6 @@ struct FinalGameView: View {
                     punishment = PunishmentsViewModel.shared.getRandomPunishment()
                 }
             }
-            
-        }
     }
     
     
@@ -84,5 +83,7 @@ struct FinalGameView: View {
 }
 
 #Preview {
+    let coordinator = AppCoordinator()
     FinalGameView()
+        .environmentObject(coordinator)
 }
