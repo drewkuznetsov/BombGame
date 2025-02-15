@@ -13,6 +13,7 @@ struct FinalGameView: View {
     @State private var punishment: String = PunishmentsViewModel.shared.getRandomPunishment()
     @State private var lastPunishment: String? = nil
     @EnvironmentObject var coordinator: AppCoordinator
+    @State var isPunishmentEnabled:Bool = true
     
     var body: some View {
         
@@ -34,23 +35,34 @@ struct FinalGameView: View {
                                 .font(Font.boldRounded(fontSize: 40))
                                 .foregroundStyle(Color.primaryColor)
                             
+                            if !isPunishmentEnabled {
+                                Spacer()
+                            }
+                            
                             Image("EndGame")
                                 .resizable()
                                 .renderingMode(.original)
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 250, height: 250)
                             
-                            Text(punishment)
-                                .font(Font.boldRounded(fontSize: 30))
-                                .foregroundStyle(Color.primaryColor)
-                                .multilineTextAlignment(.center)
-                                .lineLimit(5)
-                                .frame(height: geometry.size.height * 0.3)
-                            
-                            CustomButton(title: "Другое задание",
-                                         backgroundColor: Color.gameViewButton) {
-                                checkPunishment()
+                            if isPunishmentEnabled {
+                                Text(punishment)
+                                    .font(Font.boldRounded(fontSize: 30))
+                                    .foregroundStyle(Color.primaryColor)
+                                    .multilineTextAlignment(.center)
+                                    .lineLimit(5)
+                                    .frame(height: geometry.size.height * 0.3)
+                                    
+                                
+                                CustomButton(title: "Другое задание",
+                                             backgroundColor: Color.gameViewButton) {
+                                    checkPunishment()
+                                }
+                            } else {
+                                Spacer()
                             }
+                            
+                            
                             
                             CustomButton(title: "Начать заново",
                                          backgroundColor: Color.gameViewButton) {

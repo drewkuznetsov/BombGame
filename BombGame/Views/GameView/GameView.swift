@@ -20,15 +20,20 @@ struct GameView: View {
     @State private var soundGong: AVAudioPlayer?
     @State private var soundBang: AVAudioPlayer?
     // MARK: - Animation
+    @State private var timerValueFromSettings: Double = 10
     @State private var animationProgress: CGFloat = 0
     @State private var remainingTime: Double = 10
     @State private var timer: Timer?
+    @State private var totalTime: Double = 10
+    @State private var extraTime: Double = 1
     // MARK: - Audio
     @State var isPlaying = false
     @State var startPlaying = false
-    
-    let totalTime: Double = 10// Общее время (для вычисления прогресса)
-    let extraTime: Double = 1 // Время для финального скачка до 100%
+    @State var timerBombSoundName = "Timer"
+    @State var bangSoundName = "Bang"
+    @EnvironmentObject var audioManager: AudioManager
+    // MARK: - Vibration
+    @State var isVibrationEnabled: Bool = true
     
     let labelText = "Нажмите \"запустить\" \n чтобы начать игру."
     let questionText = "Назовите виды зимнего спорта"
@@ -87,6 +92,8 @@ struct GameView: View {
         }
         
         .onAppear {
+            remainingTime = timerValueFromSettings
+            totalTime = timerValueFromSettings
             updateAnimationProgress()
             loadRandomQuestion()
         }
@@ -95,28 +102,35 @@ struct GameView: View {
 
 
 
-//MARK: - Animation
+//MARK: - Vibration
+extension GameView {
+    func explosionVibration() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { generator.impactOccurred() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { generator.impactOccurred() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { generator.impactOccurred() }
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        
+        print("playing explosion vibration")
+    }
+}
 
+//MARK: - Animation
 extension GameView {
     func updateAnimationProgress() {
         
         if remainingTime > extraTime {
-            // Первые 30 секунд (точнее, пока currentTime > extraTime): прогресс до 70%
-            let timeLeftFor70 = remainingTime - extraTime // Время, которое осталось для плавной части
-            animationProgress = CGFloat((totalTime - timeLeftFor70) / totalTime) * 0.5 // Прогресс рассчитываем относительно totalTime
+            let timeLeftFor70 = remainingTime - extraTime
+            animationProgress = CGFloat((totalTime - timeLeftFor70) / totalTime) * 0.5
         } else {
-            // После (или когда currentTime <= extraTime): быстрая анимация до 100%
             let progressBeyond70Percent = min((extraTime - remainingTime) / extraTime, 3.0)
-            //  Сколько прошло времени с 70%
             animationProgress = 0.2 + CGFloat(progressBeyond70Percent) * 0.6
-            print("prog:",progressBeyond70Percent)
         }
-        print("anim:", animationProgress)
-        // Убедимся, что прогресс не выходит за пределы 0...1
         animationProgress = min(max(animationProgress, 0), 1)
     }
 }
-
 
 //MARK: - Load a Random Question
 extension GameView {
@@ -134,10 +148,10 @@ extension GameView {
 }
 
 //MARK: Function Extension
-
 extension GameView {
     
     private func startGame() {
+        audioManager.stopMusic()
         PlayGongSound()
         playTimerSound()
         startTimer()
@@ -152,7 +166,6 @@ extension GameView {
     }
     
     private func playGame() {
-        
         guard startPlaying
         else {
             startGame()
@@ -166,6 +179,9 @@ extension GameView {
     
     private func stopGame() {
         playBangSound()
+        if isVibrationEnabled {
+            explosionVibration()
+        }
         pauseSound()
         isPlaying.toggle()
         startPlaying.toggle()
@@ -197,11 +213,10 @@ extension GameView {
 }
 
 //MARK: Play Audio Sounds Extension
-
 extension GameView {
     
     func playTimerSound() {
-        playSound(named: "Timer", player: &soundTimer)
+        playSound(named: timerBombSoundName, player: &soundTimer)
     }
     
     func PlayGongSound() {
@@ -209,7 +224,7 @@ extension GameView {
     }
     
     func playBangSound() {
-        playSound(named: "Bang", player: &soundBang)
+        playSound(named: bangSoundName, player: &soundBang)
     }
     
     func pauseSound() {

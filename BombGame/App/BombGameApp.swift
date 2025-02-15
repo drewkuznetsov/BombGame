@@ -11,11 +11,13 @@ import SwiftUI
 struct BombGameApp: App {
     @StateObject  private var appCoordinator = AppCoordinator()
     @StateObject private var categoryViewModel = CategoryViewModel()
+    @StateObject var audioManager = AudioManager.shared
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
                 .environmentObject(appCoordinator)
                 .environmentObject(categoryViewModel)
+                .environmentObject(audioManager)
         }
     }
 }

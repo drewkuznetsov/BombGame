@@ -11,69 +11,73 @@ struct MainView: View {
     
     //MARK: - PRIVATE PROPERTIES
     @State private var isPresented = false
-//    @StateObject private var viewModel = PunishmentsViewModel()
+    //    @StateObject private var viewModel = PunishmentsViewModel()
     @EnvironmentObject var appCoordinator: AppCoordinator
     @EnvironmentObject var categoryViewModel: CategoryViewModel
-
+    @EnvironmentObject var audioManager: AudioManager
+    
     
     //MARK: - UI
     var body: some View {
-            ZStack(alignment: .top) {
-                ZStack {
-                    Color.mainBackground
-                    
-                    BackgroundImage()
-                    
-                    }
-                .ignoresSafeArea()
+        ZStack(alignment: .top) {
+            ZStack {
+                Color.mainBackground
                 
-                VStack(alignment: .center, spacing: 20) {
-                    CustomToolBar(title: "", leftButtonIcon: "gearWheel", leftButtonAction: {
-                        appCoordinator.push(.settingsView)
-                    }, rightButtonIcon: "QuestionRed") {
-                        isPresented.toggle()
-                    }
+                BackgroundImage()
+                
+            }
+            .ignoresSafeArea()
+            
+            VStack(alignment: .center, spacing: 20) {
+                CustomToolBar(title: "", leftButtonIcon: "gearWheel", leftButtonAction: {
+                    appCoordinator.push(.settingsView)
+                }, rightButtonIcon: "QuestionRed") {
+                    isPresented.toggle()
+                }
+                
+                VStack {
+                    Text("ИГРА ДЛЯ КОМПАНИИ")
+                        .font(.boldRounded(fontSize: 28))
+                        .shadow(radius: 8)
                     
-                    VStack {
-                        Text("ИГРА ДЛЯ КОМПАНИИ")
-                            .font(.boldRounded(fontSize: 28))
-                            .shadow(radius: 8)
-                        
-                        Text("БОМБА")
-                            .font(.boldRounded(fontSize: 48))
-                            .shadow(radius: 8)
-                    }
-                    
-                    Spacer()
-                    
-                    Image("mainBombImage")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width * 0.75)
-                    
-                    Spacer()
-                    
-                    CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
-                        //todo link to gameView
-                        if categoryViewModel.selectedCategories.isEmpty {
-                               print("No category selected!")
-                           } else {
-                               let selectedCategory = categoryViewModel.selectedCategories.first!
-                               appCoordinator.push(.gameView(selectedCategory: selectedCategory))
-                           }                    }
-                    
-                    CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
-                        //todo link to categoryView
-                        appCoordinator.push(.categoryView)
-                    }
+                    Text("БОМБА")
+                        .font(.boldRounded(fontSize: 48))
+                        .shadow(radius: 8)
+                }
+                
+                Spacer()
+                
+                Image("mainBombImage")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width * 0.75)
+                
+                Spacer()
+                
+                CustomButton(title: "Старт игры", backgroundColor: .mainViewButton) {
+                    //todo link to gameView
+                    if categoryViewModel.selectedCategories.isEmpty {
+                        print("No category selected!")
+                    } else {
+                        let selectedCategory = categoryViewModel.selectedCategories.first!
+                        appCoordinator.push(.gameView(selectedCategory: selectedCategory))
+                    }                    }
+                
+                CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
+                    //todo link to categoryView
+                    appCoordinator.push(.categoryView)
                 }
             }
-            .sheet(isPresented: $isPresented) {
-                RulesView()
-                    .presentationDetents([.fraction(0.754)])
-                    .presentationDragIndicator(.visible)
-                    .ignoresSafeArea(edges: .bottom)
-            }
+        }
+        .sheet(isPresented: $isPresented) {
+            RulesView()
+                .presentationDetents([.fraction(0.754)])
+                .presentationDragIndicator(.visible)
+                .ignoresSafeArea(edges: .bottom)
+        }
+        .onAppear() {
+            audioManager.playBackgroundMusic()
+        }
     }
 }
 

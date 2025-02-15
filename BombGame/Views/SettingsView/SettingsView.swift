@@ -13,6 +13,7 @@ struct SettingsView: View {
     @EnvironmentObject var coordinator: AppCoordinator
     @State var isBuzzingOn: Bool = false
     @State var isGameOn: Bool = false
+    @AppStorage("isFeatureEnabled") private var isFeatureEnabled = false
     
     
     let topTitle: String = "ВРЕМЯ ИГРЫ"
