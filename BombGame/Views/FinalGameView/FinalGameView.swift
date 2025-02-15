@@ -13,33 +13,38 @@ struct FinalGameView: View {
     @State private var punishment: String = PunishmentsViewModel.shared.getRandomPunishment()
     @State private var lastPunishment: String? = nil
     @EnvironmentObject var coordinator: AppCoordinator
+    @State var isPunishmentEnabled:Bool = true
     
     var body: some View {
         
-            ZStack(alignment: .top) {
-                ZStack {
-                    BackgroundImage()
-                    
-                    Color.gameBackground
-                        .opacity(0.5)
-                }
-                .ignoresSafeArea()
+        ZStack(alignment: .top) {
+            ZStack {
+                BackgroundImage()
                 
-                GeometryReader { geometry in
-                    HStack {
-                        Spacer()
+                Color.gameBackground
+                    .opacity(0.5)
+            }
+            .ignoresSafeArea()
+            
+            GeometryReader { geometry in
+                HStack {
+                    Spacer()
+                    
+                    VStack(alignment: .center, spacing: 30) {
+                        Text("Конец игры")
+                            .font(Font.boldRounded(fontSize: 40))
+                            .foregroundStyle(Color.primaryColor)
+                        if !isPunishmentEnabled {
+                            Spacer()
+                        }
                         
-                        VStack(alignment: .center, spacing: 30) {
-                            Text("Конец игры")
-                                .font(Font.boldRounded(fontSize: 40))
-                                .foregroundStyle(Color.primaryColor)
-                            
-                            Image("EndGame")
-                                .resizable()
-                                .renderingMode(.original)
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 250, height: 250)
-                            
+                        Image("EndGame")
+                            .resizable()
+                            .renderingMode(.original)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 250, height: 250)
+                        
+                        if isPunishmentEnabled {
                             Text(punishment)
                                 .font(Font.boldRounded(fontSize: 30))
                                 .foregroundStyle(Color.primaryColor)
@@ -47,25 +52,28 @@ struct FinalGameView: View {
                                 .lineLimit(5)
                                 .frame(height: geometry.size.height * 0.3)
                             
+                            
                             CustomButton(title: "Другое задание",
                                          backgroundColor: Color.gameViewButton) {
                                 checkPunishment()
                             }
-                            
-                            CustomButton(title: "Начать заново",
-                                         backgroundColor: Color.gameViewButton) {
-                                coordinator.push(.mainView)
-                            }
+                        } else {
+                            Spacer()
                         }
-                        .frame(width: geometry.size.width-10)
-                        
-                        Spacer()
+                        CustomButton(title: "Начать заново",
+                                     backgroundColor: Color.gameViewButton) {
+                            coordinator.push(.mainView)
+                        }
                     }
-                }
-                .onAppear() {
-                    punishment = PunishmentsViewModel.shared.getRandomPunishment()
+                    .frame(width: geometry.size.width-10)
+                    
+                    Spacer()
                 }
             }
+            .onAppear() {
+                punishment = PunishmentsViewModel.shared.getRandomPunishment()
+            }
+        }
     }
     
     
@@ -76,7 +84,7 @@ struct FinalGameView: View {
         repeat {
             newPunishment = PunishmentsViewModel.shared.getRandomPunishment()
         } while newPunishment == lastPunishment
-                    
+        
         punishment = newPunishment
         lastPunishment = newPunishment
     }
