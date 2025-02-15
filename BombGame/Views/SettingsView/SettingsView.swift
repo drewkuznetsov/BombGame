@@ -49,8 +49,11 @@ struct SettingsView: View {
                         .padding(.bottom,13)
                     
                     LazyVGrid(columns: gridColumns, spacing: 20) {
-                        ForEach(timeSettingButton.allCases) { setting in
-                            Button(action: {}) {
+                        ForEach(GameTime.allCases) { setting in
+                            Button(action: {
+                                SettingsModel.shared.gameTime = setting
+                                SettingsModel.shared.printChanges()
+                            }) {
                                 Text(setting.rawValue)
                                     .font(.boldRounded(fontSize: 16).weight(.black))
                                     .foregroundColor(.white)
@@ -73,12 +76,12 @@ struct SettingsView: View {
                 }
                 .padding(.bottom,10)
                 
-                
                 SettingsSection(height: 151) {
-                    SettingsToggleButton(title: "Вибрация", isOn: $isBuzzingOn) { newState in
-                        print("Toggle switched to: \(newState)")
+                    SettingsToggleButton(title: "Вибрация", isOn: SettingsModel.$shared.switchVibrate)
+                    { newState in
+                        SettingsModel.shared.printChanges()
                     }
-                    SettingsToggleButton(title: "Игра с заданиями", isOn: $isGameOn) { newState in
+                    SettingsToggleButton(title: "Игра с заданиями", isOn: SettingsModel.$shared.switchPunishments) { newState in
                         print("Toggle switched to: \(newState)")
                     }
                 }
