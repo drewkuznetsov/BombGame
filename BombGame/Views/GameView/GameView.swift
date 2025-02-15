@@ -170,6 +170,7 @@ extension GameView {
         isPlaying.toggle()
         startPlaying.toggle()
         remainingTime = 10
+        appCoordinator.push(.finalGameView)
     }
 }
 

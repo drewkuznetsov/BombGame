@@ -22,9 +22,11 @@ struct HelpCategoryView: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .center) {
-                BackgroundImage()
-                Color.categorySheetBG.opacity(0.8)
-                   
+                ZStack{
+                    BackgroundImage()
+                    Color.categorySheetBG.opacity(0.8)
+                }
+                .ignoresSafeArea(.all)
                 VStack(alignment: .center) {
                     Rectangle()
                         .frame(width: 68, height: 3)

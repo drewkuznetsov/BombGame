@@ -18,6 +18,10 @@
 		888EB9D52D5C0EC4000815CA /* RulesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D42D5C0EC4000815CA /* RulesModel.swift */; };
 		888EB9D72D5CADB3000815CA /* PunishmentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9D62D5CADB3000815CA /* PunishmentsModel.swift */; };
 		888EB9DD2D5CBB19000815CA /* PunishmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888EB9DC2D5CBB19000815CA /* PunishmentsViewModel.swift */; };
+		AD5EE7572D5F000200F92FAF /* SettignsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5EE7562D5EFFFC00F92FAF /* SettignsModel.swift */; };
+		AD5EE7592D5F11A500F92FAF /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5EE7582D5F119F00F92FAF /* SettingsButton.swift */; };
+		AD5EE75B2D5F15A900F92FAF /* SettingsToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5EE75A2D5F159600F92FAF /* SettingsToggleButton.swift */; };
+		AD5EE75D2D5F1AA200F92FAF /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5EE75C2D5F1A9200F92FAF /* SettingsSection.swift */; };
 		AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */; };
 		AD896F812D5AB46F00389CA8 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F802D5AB46A00389CA8 /* CategoryModel.swift */; };
 		AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */; };
@@ -54,6 +58,10 @@
 		888EB9D42D5C0EC4000815CA /* RulesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesModel.swift; sourceTree = "<group>"; };
 		888EB9D62D5CADB3000815CA /* PunishmentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunishmentsModel.swift; sourceTree = "<group>"; };
 		888EB9DC2D5CBB19000815CA /* PunishmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunishmentsViewModel.swift; sourceTree = "<group>"; };
+		AD5EE7562D5EFFFC00F92FAF /* SettignsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettignsModel.swift; sourceTree = "<group>"; };
+		AD5EE7582D5F119F00F92FAF /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		AD5EE75A2D5F159600F92FAF /* SettingsToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggleButton.swift; sourceTree = "<group>"; };
+		AD5EE75C2D5F1A9200F92FAF /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		AD896F7D2D5AAC9B00389CA8 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		AD896F802D5AB46A00389CA8 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		AD896F822D5AFA1400389CA8 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 			children = (
 				AD896F802D5AB46A00389CA8 /* CategoryModel.swift */,
 				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
+				AD5EE7562D5EFFFC00F92FAF /* SettignsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +225,9 @@
 		ADE1E8122D5DE2FC00C3BB8E /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
+				AD5EE75C2D5F1A9200F92FAF /* SettingsSection.swift */,
+				AD5EE75A2D5F159600F92FAF /* SettingsToggleButton.swift */,
+				AD5EE7582D5F119F00F92FAF /* SettingsButton.swift */,
 				ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */,
 			);
 			path = SettingsView;
@@ -372,16 +384,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD896F872D5B000B00389CA8 /* CategoryButtonView.swift in Sources */,
+				AD5EE7592D5F11A500F92FAF /* SettingsButton.swift in Sources */,
 				888EB9D12D5BF88D000815CA /* MainView.swift in Sources */,
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
 				37C0100A2D5CEEEB009A78AE /* SwiftUIView.swift in Sources */,
 				37C0100B2D5CEEEB009A78AE /* LottieView.swift in Sources */,
+				AD5EE75B2D5F15A900F92FAF /* SettingsToggleButton.swift in Sources */,
 				AD896F7E2D5AAC9F00389CA8 /* CategoryView.swift in Sources */,
 				377DDD7E2D5E9294003F5C0A /* FinalGameView.swift in Sources */,
 				888EB9D72D5CADB3000815CA /* PunishmentsModel.swift in Sources */,
 				ADE1E8142D5DE32800C3BB8E /* SettingsView.swift in Sources */,
+				AD5EE75D2D5F1AA200F92FAF /* SettingsSection.swift in Sources */,
 				AD896F852D5AFDAC00389CA8 /* CatergoryToolbarView.swift in Sources */,
 				E48A58AC2D5BC79600C70964 /* GameView.swift in Sources */,
 				888EB9D52D5C0EC4000815CA /* RulesModel.swift in Sources */,
@@ -389,6 +404,7 @@
 				AD896F832D5AFA1F00389CA8 /* CategoryViewModel.swift in Sources */,
 				888EB9DD2D5CBB19000815CA /* PunishmentsViewModel.swift in Sources */,
 				ADE1E80A2D5DC20E00C3BB8E /* CordinatorView.swift in Sources */,
+				AD5EE7572D5F000200F92FAF /* SettignsModel.swift in Sources */,
 				E426A80A2D5BE42A0035323A /* BackgroundImage.swift in Sources */,
 				E426A8082D5BE1B10035323A /* CustomButton.swift in Sources */,
 				888EB9D32D5C0C06000815CA /* RulesView.swift in Sources */,
