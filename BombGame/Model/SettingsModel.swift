@@ -31,9 +31,9 @@ enum GameTime: String, CaseIterable, Identifiable  {
 
 enum MelodiName: String, CaseIterable, Identifiable  {
     
-    case melodi1 = "Мелодия1"
-    case melodi2 = "Мелодия2"
-    case melodi3 = "Мелодия3"
+    case melodi1 = "Мелодия 1"
+    case melodi2 = "Мелодия 2"
+    case melodi3 = "Мелодия 3"
     
     func getMelodiFile() -> String {
         switch self {
@@ -51,9 +51,9 @@ enum MelodiName: String, CaseIterable, Identifiable  {
 }
 
 enum TimerSound: String, CaseIterable, Identifiable  {
-    case timerSound1 = "Таймер1"
-    case timerSound2 = "Таймер2"
-    case timerSound3 = "Таймер3"
+    case timerSound1 = "Таймер 1"
+    case timerSound2 = "Таймер 2"
+    case timerSound3 = "Таймер 3"
     
     func getTimerSoundFile() -> String {
         switch self {
@@ -71,9 +71,9 @@ enum TimerSound: String, CaseIterable, Identifiable  {
 }
 
 enum BangSound: String, CaseIterable, Identifiable {
-    case bangSound1 = "Взрыв1"
-    case bangSound2 = "Взрыв2"
-    case bangSound3 = "Взрыв3"
+    case bangSound1 = "Взрыв 1"
+    case bangSound2 = "Взрыв 2"
+    case bangSound3 = "Взрыв 3"
     
     func getbangSoundFile() -> String {
         switch self {
@@ -98,11 +98,11 @@ class SettingsModel: ObservableObject {
     
     @Published var gameTime = GameTime.shot
     
-    @Published var melodiName = MelodiName.melodi1
+    @Published var melodiName = MelodiName.melodi2
     
     @Published var timerSound = TimerSound.timerSound1
     
-    @Published var bangSound = BangSound.bangSound1
+    @Published var bangSound = BangSound.bangSound3
     
     @Published var switchVibrate = true
     

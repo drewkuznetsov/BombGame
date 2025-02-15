@@ -14,6 +14,10 @@ struct SettingsView: View {
     @State var isBuzzingOn: Bool = false
     @State var isGameOn: Bool = false
     
+    @State var selectedMelodi = SettingsModel.shared.melodiName
+    @State var selectedTimerSound = SettingsModel.shared.timerSound
+    @State var selectedBangSound = SettingsModel.shared.bangSound
+    
     
     let topTitle: String = "ВРЕМЯ ИГРЫ"
     let backyardTitle: String = "Фоновая Музыка"
@@ -68,14 +72,33 @@ struct SettingsView: View {
                 .padding(.bottom,10)
                 .padding(.top,20)
                 
-                
-                SettingsSection(height: 235) {
-                    SettingsButton(title: backyardTitle, option: option1, action: {})
-                    SettingsButton(title: "Тиканье бомбы", option: "Часы 2", action: {})
-                    SettingsButton(title: "Взрыв бомбы", option: "Взрыв 1", action: {})
+                Picker("Chuse Melodi", selection: $selectedMelodi) { //SettingsModel.$shared.melodiName) {
+                    ForEach(MelodiName.allCases, id: \.self) {melodi in
+                        Text(melodi.rawValue)}
                 }
-                .padding(.bottom,10)
+                .pickerStyle(.menu)
                 
+                Picker("Chuse Timer Sound", selection: $selectedTimerSound) {
+                    ForEach(TimerSound.allCases, id: \.self) { sound in
+                        Text(sound.rawValue)}
+                }
+                .pickerStyle(.menu)
+                
+                Picker("Chuse Bang Sound", selection: $selectedBangSound) {
+                    ForEach(BangSound.allCases, id: \.self) {bang in
+                        Text(bang.rawValue)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                
+//                SettingsSection(height: 235) {
+//                    SettingsButton(title: backyardTitle, option: option1, action: {})
+//                    SettingsButton(title: "Тиканье бомбы", option: "Часы 2", action: {})
+//                    SettingsButton(title: "Взрыв бомбы", option: "Взрыв 1", action: {})
+//                }
+//                .padding(.bottom,10)
+//                
                 SettingsSection(height: 151) {
                     SettingsToggleButton(title: "Вибрация", isOn: SettingsModel.$shared.switchVibrate)
                     { newState in
@@ -87,6 +110,13 @@ struct SettingsView: View {
                 }
                 
                 Spacer()
+            }
+            .onDisappear(){
+                
+                SettingsModel.shared.bangSound = selectedBangSound
+                SettingsModel.shared.melodiName = selectedMelodi
+                SettingsModel.shared.timerSound = selectedTimerSound
+                SettingsModel.shared.printChanges()
             }
         }
     }
