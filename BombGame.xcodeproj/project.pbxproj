@@ -33,6 +33,7 @@
 		ADE1E8082D5DC1B900C3BB8E /* AppCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8072D5DC1A900C3BB8E /* AppCordinator.swift */; };
 		ADE1E80A2D5DC20E00C3BB8E /* CordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8092D5DC20A00C3BB8E /* CordinatorView.swift */; };
 		ADE1E8142D5DE32800C3BB8E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */; };
+		C51925BB2D60D35600EAB0F1 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51925BA2D60D34800EAB0F1 /* SettingsModel.swift */; };
 		E416A4162D5CC4D300FD9E26 /* Bang.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4152D5CC4D300FD9E26 /* Bang.mp3 */; };
 		E416A4182D5CC4D800FD9E26 /* Gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4172D5CC4D800FD9E26 /* Gong.mp3 */; };
 		E416A41A2D5CC4DF00FD9E26 /* Timer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */; };
@@ -73,6 +74,7 @@
 		ADE1E8072D5DC1A900C3BB8E /* AppCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinator.swift; sourceTree = "<group>"; };
 		ADE1E8092D5DC20A00C3BB8E /* CordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordinatorView.swift; sourceTree = "<group>"; };
 		ADE1E8132D5DE30A00C3BB8E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C51925BA2D60D34800EAB0F1 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		E416A4152D5CC4D300FD9E26 /* Bang.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bang.mp3; sourceTree = "<group>"; };
 		E416A4172D5CC4D800FD9E26 /* Gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Gong.mp3; sourceTree = "<group>"; };
 		E416A4192D5CC4DF00FD9E26 /* Timer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Timer.mp3; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				AD896F802D5AB46A00389CA8 /* CategoryModel.swift */,
 				888EB9D42D5C0EC4000815CA /* RulesModel.swift */,
 				AD5EE7562D5EFFFC00F92FAF /* SettignsModel.swift */,
+				C51925BA2D60D34800EAB0F1 /* SettingsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				E477D8242D5A5C9B0033AA5F /* ContentView.swift in Sources */,
 				ADE061D22D5C041A009BDE6A /* HelpCategoryView.swift in Sources */,
 				8859F00C2D5A8BF400356569 /* UIExtensions.swift in Sources */,
+				C51925BB2D60D35600EAB0F1 /* SettingsModel.swift in Sources */,
 				37C0100A2D5CEEEB009A78AE /* SwiftUIView.swift in Sources */,
 				37C0100B2D5CEEEB009A78AE /* LottieView.swift in Sources */,
 				AD5EE75B2D5F15A900F92FAF /* SettingsToggleButton.swift in Sources */,
