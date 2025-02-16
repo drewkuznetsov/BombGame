@@ -61,7 +61,9 @@ struct MainView: View {
                     } else {
                         let selectedCategory = categoryViewModel.selectedCategories.first!
                         appCoordinator.push(.gameView(selectedCategory: selectedCategory))
-                    }                    }
+                    }
+                }
+                .opacity(categoryViewModel.selectedCategories.isEmpty ? 0.4 : 1)
                 
                 CustomButton(title: "Категории", backgroundColor: .mainViewButton) {
                     //todo link to categoryView
@@ -78,6 +80,10 @@ struct MainView: View {
         .onAppear() {
             audioManager.playBackgroundMusic()
         }
+        .onDisappear(){
+            audioManager.stopMusic()
+        }
+        
     }
 }
 

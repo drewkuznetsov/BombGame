@@ -83,7 +83,7 @@ struct SettingsView: View {
                     ScrollView(){
                         VStack(spacing: 22){
                             CustomToggleButton(
-                                selectedValue: $selectedMelodi,
+                                selectedValue: SettingsModel.$shared.melodiName, //$selectedMelodi,
                                 isExpanded: $isExpandedMelodi,
                                 title: "Фоновая музыка"
                             )
@@ -124,8 +124,8 @@ struct SettingsView: View {
             }
                 .onDisappear(){
                     
+//                    SettingsModel.shared.melodiName = selectedMelodi
                     SettingsModel.shared.bangSound = selectedBangSound
-                    SettingsModel.shared.melodiName = selectedMelodi
                     SettingsModel.shared.timerSound = selectedTimerSound
                     SettingsModel.shared.printChanges()
                     }
