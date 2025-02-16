@@ -15,6 +15,12 @@ struct SettingsView: View {
     @State var isGameOn: Bool = false
     @AppStorage("isFeatureEnabled") private var isFeatureEnabled = false
     
+    
+    @State private var isExpandedMelodi = false
+    @State private var isExpandedTimerSound = false
+    @State private var isExpandedBangSound = false
+    
+    
     @State var selectedMelodi = SettingsModel.shared.melodiName
     @State var selectedTimerSound = SettingsModel.shared.timerSound
     @State var selectedBangSound = SettingsModel.shared.bangSound
@@ -35,6 +41,7 @@ struct SettingsView: View {
                 BackgroundImage()
             }
             .ignoresSafeArea()
+     
             VStack(spacing: 16) {
                 
                 CustomToolBar(
@@ -45,7 +52,7 @@ struct SettingsView: View {
                     rightButtonAction: {}
                 )
                 
-                
+                ScrollView {
                 SettingsSection(height: 183) {
                     Text(topTitle)
                         .font(.boldRounded(fontSize: 20))
@@ -70,36 +77,39 @@ struct SettingsView: View {
                     }
                     .padding(.horizontal, 12)
                 }
-                .padding(.bottom,10)
+                .padding(.bottom,22)
                 .padding(.top,20)
-                
-                Picker("Chuse Melodi", selection: $selectedMelodi) { //SettingsModel.$shared.melodiName) {
-                    ForEach(MelodiName.allCases, id: \.self) {melodi in
-                        Text(melodi.rawValue)}
-                }
-                .pickerStyle(.menu)
-                
-                Picker("Chuse Timer Sound", selection: $selectedTimerSound) {
-                    ForEach(TimerSound.allCases, id: \.self) { sound in
-                        Text(sound.rawValue)}
-                }
-                .pickerStyle(.menu)
-                
-                Picker("Chuse Bang Sound", selection: $selectedBangSound) {
-                    ForEach(BangSound.allCases, id: \.self) {bang in
-                        Text(bang.rawValue)
+                    SettingsSection(height: isExpandedMelodi || isExpandedTimerSound || isExpandedBangSound ? 340 : 235) {
+                    ScrollView(){
+                        VStack(spacing: 22){
+                            CustomToggleButton(
+                                selectedValue: $selectedMelodi,
+                                isExpanded: $isExpandedMelodi,
+                                title: "Фоновая музыка"
+                            )
+                            
+                            
+                            CustomToggleButton(
+                                selectedValue: $selectedTimerSound,
+                                isExpanded: $isExpandedTimerSound,
+                                title: "Тиканье бомбы"
+                            )
+                            
+                            CustomToggleButton(
+                                selectedValue: $selectedBangSound,
+                                isExpanded: $isExpandedBangSound,
+                                title: "Взрыв бомбы"
+                            )
+                            
+                        }
+                        
+                        .padding()
                     }
-                }
-                .pickerStyle(.menu)
+            }
+                    .padding(.bottom,22)
 
-                
-//                SettingsSection(height: 235) {
-//                    SettingsButton(title: backyardTitle, option: option1, action: {})
-//                    SettingsButton(title: "Тиканье бомбы", option: "Часы 2", action: {})
-//                    SettingsButton(title: "Взрыв бомбы", option: "Взрыв 1", action: {})
-//                }
-//                .padding(.bottom,10)
-//                
+                    
+                    
                 SettingsSection(height: 151) {
                     SettingsToggleButton(title: "Вибрация", isOn: SettingsModel.$shared.switchVibrate)
                     { newState in
@@ -112,14 +122,16 @@ struct SettingsView: View {
                 
                 Spacer()
             }
-            .onDisappear(){
-                
-                SettingsModel.shared.bangSound = selectedBangSound
-                SettingsModel.shared.melodiName = selectedMelodi
-                SettingsModel.shared.timerSound = selectedTimerSound
-                SettingsModel.shared.printChanges()
+                .onDisappear(){
+                    
+                    SettingsModel.shared.bangSound = selectedBangSound
+                    SettingsModel.shared.melodiName = selectedMelodi
+                    SettingsModel.shared.timerSound = selectedTimerSound
+                    SettingsModel.shared.printChanges()
+                    }
+                }
             }
-        }
+        
     }
 }
 
