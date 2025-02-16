@@ -39,7 +39,7 @@ enum MelodiName: String, CaseIterable, Identifiable  {
         switch self {
             
         case .melodi1:
-            return "Melodi1"
+            return "MainTheme"
         case .melodi2:
             return "Melodi2"
         case .melodi3:

@@ -29,8 +29,8 @@ struct GameView: View {
     // MARK: - Audio
     @State var isPlaying = false
     @State var startPlaying = false
-    @State var timerBombSoundName = "Timer"
-    @State var bangSoundName = "Bang"
+    @State var timerBombSoundName = SettingsModel.shared.timerSound.getTimerSoundFile() //"Timer"
+    @State var bangSoundName = SettingsModel.shared.bangSound.getbangSoundFile() //"Bang"
     @EnvironmentObject var audioManager: AudioManager
     // MARK: - Vibration
     @State var isVibrationEnabled: Bool = true
@@ -51,8 +51,8 @@ struct GameView: View {
             VStack(alignment: .center, spacing: 10) {
                 //MARK: Custom ToolBar
                 CustomToolBar(title: "Игра",
-                              leftButtonIcon: "Arrow", leftButtonAction: {
-                    
+                              leftButtonIcon: startPlaying ? "" : "Arrow",
+                              leftButtonAction: {
                     appCoordinator.pop()
                 }, rightButtonIcon: isPlaying ? "Pause" : "Play") {
                     // Play Button Action

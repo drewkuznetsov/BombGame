@@ -44,7 +44,7 @@ struct FinalGameView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 250, height: 250)
                         
-                        if isPunishmentEnabled {
+                        if SettingsModel.shared.switchPunishments { //isPunishmentEnabled {
                             Text(punishment)
                                 .font(Font.boldRounded(fontSize: 30))
                                 .foregroundStyle(Color.primaryColor)

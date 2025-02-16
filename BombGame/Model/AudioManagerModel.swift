@@ -21,7 +21,7 @@ class AudioManager: ObservableObject {
             return // Если уже играет, ничего не делаем
         }
         
-        guard let url = Bundle.main.url(forResource: "MainTheme", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: SettingsModel.shared.melodiName.getMelodiFile(), withExtension: "mp3") else { // "MainTheme", withExtension: "mp3") else {
             print("Ошибка: Файл музыки не найден")
             return
         }
