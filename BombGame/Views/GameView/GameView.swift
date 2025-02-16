@@ -20,11 +20,11 @@ struct GameView: View {
     @State private var soundGong: AVAudioPlayer?
     @State private var soundBang: AVAudioPlayer?
     // MARK: - Animation
-    @State private var timerValueFromSettings: Double = 10
+    @State private var timerValueFromSettings: Double = SettingsModel.shared.gameTime.getGameTime() //10
     @State private var animationProgress: CGFloat = 0
-    @State private var remainingTime: Double = 10
+    @State private var remainingTime: Double = SettingsModel.shared.gameTime.getGameTime() //10
     @State private var timer: Timer?
-    @State private var totalTime: Double = 10
+    @State private var totalTime: Double = SettingsModel.shared.gameTime.getGameTime() //10
     @State private var extraTime: Double = 1
     // MARK: - Audio
     @State var isPlaying = false

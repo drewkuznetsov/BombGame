@@ -13,7 +13,7 @@ enum GameTime: String, CaseIterable, Identifiable  {
     case long = "Длинное"
     case random = "Случайное"
     
-    func getGameTime() -> Int {
+    func getGameTime() -> Double {
         switch self {
         case .shot:
             return 10
@@ -22,7 +22,7 @@ enum GameTime: String, CaseIterable, Identifiable  {
         case .long:
             return 45
         case .random:
-            return Int.random(in: 10...45)
+            return Double(Int.random(in: 10...45))
         }
     }
     

@@ -25,6 +25,7 @@ struct SettingsView: View {
     @State var selectedTimerSound = SettingsModel.shared.timerSound
     @State var selectedBangSound = SettingsModel.shared.bangSound
     
+    @State var selectedTime = SettingsModel.shared.gameTime
     
     let topTitle: String = "ВРЕМЯ ИГРЫ"
     let backyardTitle: String = "Фоновая Музыка"
@@ -64,6 +65,7 @@ struct SettingsView: View {
                         ForEach(GameTime.allCases) { setting in
                             Button(action: {
                                 SettingsModel.shared.gameTime = setting
+                                selectedTime = setting
                                 SettingsModel.shared.printChanges()
                             }) {
                                 Text(setting.rawValue)
@@ -73,6 +75,7 @@ struct SettingsView: View {
                                     .background(Color.primary.opacity(0.7))
                                     .cornerRadius(15)
                             }
+                            .opacity(setting == selectedTime ? 0.5 : 1)
                         }
                     }
                     .padding(.horizontal, 12)
